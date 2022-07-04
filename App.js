@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { useState } from 'react';
+import { TouchableWithoutFeedback } from 'react-native-web';
 
 export default function App() {
 
@@ -63,7 +64,7 @@ export default function App() {
           <Text style={styles.texto_botao}>9</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.botao_num}
+        <TouchableOpacity style={styles.botao_operacao}
           onPress={() => limparVisor()}>
           <Text style={styles.texto_botao}>C</Text>
         </TouchableOpacity>
@@ -85,7 +86,7 @@ export default function App() {
           <Text style={styles.texto_botao}>6</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.botao_num}
+        <TouchableOpacity style={styles.botao_operacao}
           onPress={() => configOperacao('+')}>
           <Text style={styles.texto_botao}>+</Text>
         </TouchableOpacity>
@@ -107,7 +108,7 @@ export default function App() {
           <Text style={styles.texto_botao}>3</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.botao_num}
+        <TouchableOpacity style={styles.botao_operacao}
           onPress={() => configOperacao('-')}>
           <Text style={styles.texto_botao}>-</Text>
         </TouchableOpacity>
@@ -120,7 +121,7 @@ export default function App() {
           <Text style={styles.texto_botao}>0</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.botao_num} 
+        <TouchableOpacity style={styles.botao_operacao} 
         onPress={() => addDotVisor()}>
           <Text style={styles.texto_botao}>.</Text>
         </TouchableOpacity>
@@ -139,18 +140,18 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#262829',
+    backgroundColor: '#262626',
     alignItems: 'center',
     justifyContent: 'center',
   },
 
   estilo_visor: {
-    backgroundColor: '#424C61',
+    backgroundColor: '#F2F2F2',
     borderWidth: 1,
     width: '95%',
     height: '15%',
     fontSize: 30,
-    borderRadius: 10,
+    borderRadius: 2,
   },
 
   view_linha: {
@@ -161,33 +162,43 @@ const styles = StyleSheet.create({
   },
 
   botao_num: {
-    backgroundColor: '#9CB5E6',
+    backgroundColor: '#F2F2F2',
     borderWidth: 1,
     width: '25%',
     height: '100%',
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: 10,
+    borderRadius: 2,
+  },
+
+  botao_operacao: {
+    backgroundColor: '#BFBFBF',
+    borderWidth: 1,
+    width: '25%',
+    height: '100%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 2,
   },
 
   botao_num_0: {
     borderWidth: 1,
     width: '50%',
-    backgroundColor: '#9CB5E6',
+    backgroundColor: '#F2F2F2',
     height: '100%',
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: 10,
+    borderRadius: 2,
   },
 
   botao_num_igual: {
     borderWidth: 1,
     width: '25%',
-    backgroundColor: '#5683E0',
+    backgroundColor: '#F24405',
     height: '100%',
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: 10,
+    borderRadius: 2,
   },
 
   texto_botao: {
