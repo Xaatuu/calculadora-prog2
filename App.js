@@ -12,6 +12,14 @@ export default function App() {
     setDadosVisor(dadosVisor + num);  // dadosVisor = dadosVisor + num;
   }
 
+  function addVirVisor() {
+    setDadosVisor(dadosVisor + ',');  // dadosVisor = dadosVisor + num;
+  }
+
+  function addDotVisor() {
+    setDadosVisor(dadosVisor + '.');  // dadosVisor = dadosVisor + num;
+  }
+
   function limparVisor() {
     setDadosVisor('');                // dadosVisor = '';
   }
@@ -25,6 +33,10 @@ export default function App() {
   function executarOperacao() {
     if (operacao == '+') {
       setDadosVisor(valor1 + Number(dadosVisor));
+    }
+
+    if (operacao == '-') {
+      setDadosVisor(valor1 - Number(dadosVisor));
     }
   }
 
@@ -96,6 +108,24 @@ export default function App() {
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.botao_num}
+          onPress={() => configOperacao('-')}>
+          <Text style={styles.texto_botao}>-</Text>
+        </TouchableOpacity>
+      </View>
+
+      <View style={styles.view_linha}>
+
+        <TouchableOpacity style={styles.botao_num_0}
+          onPress={() => addNumeroAoVisor('0')}>
+          <Text style={styles.texto_botao}>0</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.botao_num} 
+        onPress={() => addDotVisor()}>
+          <Text style={styles.texto_botao}>.</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.botao_num}
           onPress={() => executarOperacao()}>
           <Text style={styles.texto_botao}>=</Text>
         </TouchableOpacity>
@@ -138,7 +168,17 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
 
+  botao_num_0: {
+    borderWidth: 1,
+    width: '50%',
+    height: '100%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 10,
+  },
+
   texto_botao: {
     fontSize: 25,
   },
+
 });
